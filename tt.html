@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Sevgili Leyla</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Segoe Script', cursive;
+    }
+
+    h1 {
+      font-size: 70px;
+      color: white;
+      text-shadow: 3px 3px 10px #000;
+      z-index: 2;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 4s infinite ease-in-out;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% { transform: scale(0.8) rotate(45deg) translateY(0); opacity: 1; }
+      50% { transform: scale(1.2) rotate(45deg) translateY(-20px); opacity: 0.7; }
+      100% { transform: scale(0.8) rotate(45deg) translateY(0); opacity: 1; }
+    }
+
+    button {
+      margin: 15px;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 20px;
+      background-color: #ff4081;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    button:hover {
+      background-color: #e91e63;
+      transform: scale(1.05);
+    }
+
+    #loveQuestion, #answerButtons, #thinkAgain, #finalLove {
+      margin-top: 20px;
+      font-size: 28px;
+      color: white;
+      text-shadow: 2px 2px 8px #000;
+      display: none;
+      text-align: center;
+    }
+
+    #finalLove {
+      font-size: 38px;
+      color: yellow;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Leyla 💖</h1>
+
+  <!-- Ürəklər -->
+  <div class="heart" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+  <div class="heart" style="top: 30%; left: 70%; animation-delay: 1s;"></div>
+  <div class="heart" style="top: 50%; left: 40%; animation-delay: 2s;"></div>
+  <div class="heart" style="top: 70%; left: 60%; animation-delay: 3s;"></div>
+  <div class="heart" style="top: 20%; left: 80%; animation-delay: 0.5s;"></div>
+
+  <!-- Başlanğıc düymə -->
+  <button onclick="showLoveQuestion()">Məni sevirsən?</button>
+
+  <!-- Sevgi sualı -->
+  <div id="loveQuestion">Mənimlə sevgili olarsan? 💌</div>
+
+  <!-- Hə / Yox düymələri -->
+  <div id="answerButtons">
+    <button onclick="showFinalLove()">Hə</button>
+    <button onclick="showThinkAgain()">Yox</button>
+  </div>
+
+  <!-- "Bir daha düşün..." -->
+  <div id="thinkAgain">Bir daha düşün... 🤔</div>
+
+  <!-- "Səni çox sevirəm" -->
+  <div id="finalLove">Səni çox sevirəm ❤️</div>
+
+  <script>
+    function showLoveQuestion() {
+      document.getElementById("loveQuestion").style.display = "block";
+      document.getElementById("answerButtons").style.display = "block";
+      document.getElementById("thinkAgain").style.display = "none";
+      document.getElementById("finalLove").style.display = "none";
+    }
+
+    function showThinkAgain() {
+      document.getElementById("thinkAgain").style.display = "block";
+      document.getElementById("finalLove").style.display = "none";
+    }
+
+    function showFinalLove() {
+      document.getElementById("thinkAgain").style.display = "none";
+      document.getElementById("finalLove").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
